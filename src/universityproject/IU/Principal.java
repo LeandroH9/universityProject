@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package universityproject;
+package universityproject.IU;
 
 import java.util.Scanner;
 
@@ -11,14 +11,9 @@ import java.util.Scanner;
  *
  * @author leand
  */
-public class UniversityProject {
-
-    /**
-     * @param args the command line arguments
-     */
+public class Principal {
     public static void main(String[] args) {
-        // TODO code application logic here
         Scanner sc;
+        System.out.println("Projeto de uma universidade");
     }
-    
 }
