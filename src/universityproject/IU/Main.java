@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author leand
  */
-public class Principal {
+public class Main {
     public static void main(String[] args) {
         Scanner sc;
         System.out.println("Projeto de uma universidade");
