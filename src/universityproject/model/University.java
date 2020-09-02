@@ -25,14 +25,53 @@ public class University {
         database.addDepartment(d);
     }
     
-    public String viewDepartments(){
-        String relatorio = "";
+    public void addTechnician(String codeDepart, String code, String name, double wage, String level, String occupation){
+        Department d = searchDepartment(codeDepart);
+        if (d != null){
+            Technician t = new Technician(code, name, wage, level, occupation);
+            d.addTechnician(t);
+        } else System.out.println("Não foi possível adicionar este técnico");
+        
+    }
+    
+    public void addEffectiveTeacher(String codeDepart, String code, String name, double wage, String level, String titration, String area){
+        Department d = searchDepartment(codeDepart);
+        if (d != null){
+            EffectiveTeacher e = new EffectiveTeacher(code, name, wage, level, titration, area);
+            d.addEffectiveTeacher(e);
+        } else System.out.println("Não foi possível adicionar este professor efetivo");
+        
+    }
+    
+    public void addSubstituteTeacher(String codeDepart, String code, String name, double wage, String level, String titration, int workload){
+        Department d = searchDepartment(codeDepart);
+        if (d != null){
+            SubstituteTeacher s = new SubstituteTeacher(code, name, wage, level, titration, workload);
+            d.addSubstituteTeacher(s);
+        } else System.out.println("Não foi possível adicionar este professor substituto");
+        
+    }
+    
+    public Department searchDepartment(String codeDepart){
+        Department d = database.searchDepartment(codeDepart);
+        if(d != null){
+            return d;
+        } else return null;
+    }
+    
+    public String allData(){
+        String relatorio = "Universidade: " + name + "\n\n" ;
         Department departments[] = database.getDepartments();
         int qtdDepart = database.getContDepart();
         for(int i=0; i < qtdDepart; i++){
-            relatorio += departments[i].view();
+            relatorio += departments[i].data();
         }
         return relatorio;
     }
+
+    public String getName() {
+        return name;
+    }
+    
     
 }
