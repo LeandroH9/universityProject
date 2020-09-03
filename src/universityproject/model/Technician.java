@@ -11,11 +11,11 @@ package universityproject.model;
  */
 public class Technician extends Employee{
     private String occupation;
-    private String type;
+    
     
     public Technician(String code, String name, double wage, String level, String occupation){
         super(code, name, wage, level);
-        this.type = "Tecnico";
+        type = "Tecnico";
         this.occupation = occupation;
     }
     
@@ -25,7 +25,7 @@ public class Technician extends Employee{
     }
     
     public String data(){
-        String relatorio = "Técnico : " + getCode() + "\n" 
+        String relatorio = "Código do técnico : " + getCode() + "\n" 
                          + "Nome: " + getName() + "\n" + "Salário: " 
                           + getWage() + "\n" + "Nível: " + getLevel() + "\n"
                           + "Função: " + getOccupation() + "\n\n";
@@ -36,9 +36,6 @@ public class Technician extends Employee{
         return occupation;
     }
 
-    public String getType() {
-        return type;
-    }
     
     
 }

@@ -14,6 +14,7 @@ public abstract class Employee {
     protected String name;
     protected double wage; //salario
     protected String level;
+    protected String type;
     
     public Employee(String code, String name, double wage, String level){
         this.code = code;
@@ -42,6 +43,12 @@ public abstract class Employee {
     public String getLevel() {
         return level;
     }
+
+    public String getType() {
+        return type;
+    }
+    
+    
 
     
     

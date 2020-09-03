@@ -45,12 +45,12 @@ public class IUPrincipal extends javax.swing.JFrame {
         MI_geral = new javax.swing.JMenuItem();
         MI_departamentos = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
+        MI_funcGeral = new javax.swing.JMenuItem();
+        MI_tecnicos = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
-        jMenuItem13 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
+        MI_docenGeral = new javax.swing.JMenuItem();
+        MI_docenEfetivos = new javax.swing.JMenuItem();
+        MI_docenSubstitutos = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
 
@@ -110,22 +110,47 @@ public class IUPrincipal extends javax.swing.JFrame {
 
         jMenu5.setText("Funcionarios");
 
-        jMenuItem6.setText("Geral");
-        jMenu5.add(jMenuItem6);
+        MI_funcGeral.setText("Geral");
+        MI_funcGeral.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MI_funcGeralActionPerformed(evt);
+            }
+        });
+        jMenu5.add(MI_funcGeral);
 
-        jMenuItem7.setText("Técnicos");
-        jMenu5.add(jMenuItem7);
+        MI_tecnicos.setText("Técnicos");
+        MI_tecnicos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MI_tecnicosActionPerformed(evt);
+            }
+        });
+        jMenu5.add(MI_tecnicos);
 
         jMenu6.setText("Docentes");
 
-        jMenuItem13.setText("Geral");
-        jMenu6.add(jMenuItem13);
+        MI_docenGeral.setText("Geral");
+        MI_docenGeral.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MI_docenGeralActionPerformed(evt);
+            }
+        });
+        jMenu6.add(MI_docenGeral);
 
-        jMenuItem8.setText("Efetivos");
-        jMenu6.add(jMenuItem8);
+        MI_docenEfetivos.setText("Efetivos");
+        MI_docenEfetivos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MI_docenEfetivosActionPerformed(evt);
+            }
+        });
+        jMenu6.add(MI_docenEfetivos);
 
-        jMenuItem9.setText("Substitutos");
-        jMenu6.add(jMenuItem9);
+        MI_docenSubstitutos.setText("Substitutos");
+        MI_docenSubstitutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MI_docenSubstitutosActionPerformed(evt);
+            }
+        });
+        jMenu6.add(MI_docenSubstitutos);
 
         jMenu5.add(jMenu6);
 
@@ -156,14 +181,46 @@ public class IUPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void MI_departamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MI_departamentosActionPerformed
-        // TODO add your handling code here:
+        IURelatorio relatorio = new IURelatorio(this, false);
+        Controller control = new Controller();
+        relatorio.exibir("Relatório dos Departamentos", "Departamentos", control.resumeDepartment());
     }//GEN-LAST:event_MI_departamentosActionPerformed
 
     private void MI_geralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MI_geralActionPerformed
         IURelatorio relatorio = new IURelatorio(this, false);
         Controller control = new Controller();
-        relatorio.exibir("Relatório dos Departamentos", "Departamentos", control.allData());
+        relatorio.exibir("Relatório Geral", "Geral", control.allData());
     }//GEN-LAST:event_MI_geralActionPerformed
+
+    private void MI_funcGeralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MI_funcGeralActionPerformed
+        IURelatorio relatorio = new IURelatorio(this, false);
+        Controller control = new Controller();
+        relatorio.exibir("Relatório Geral dos Funcionários", "Funcionários ", control.dataAllEmployee());
+    }//GEN-LAST:event_MI_funcGeralActionPerformed
+
+    private void MI_tecnicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MI_tecnicosActionPerformed
+        IURelatorio relatorio = new IURelatorio(this, false);
+        Controller control = new Controller();
+        relatorio.exibir("Relatório dos Funcionários Técnicos", "Técnicos", control.dataAllTechnician());
+    }//GEN-LAST:event_MI_tecnicosActionPerformed
+
+    private void MI_docenEfetivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MI_docenEfetivosActionPerformed
+        IURelatorio relatorio = new IURelatorio(this, false);
+        Controller control = new Controller();
+        relatorio.exibir("Relatório dos Docentes Efetivos", "Docentes Efetivos", control.dataAllEffectiveTeacher());
+    }//GEN-LAST:event_MI_docenEfetivosActionPerformed
+
+    private void MI_docenSubstitutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MI_docenSubstitutosActionPerformed
+        IURelatorio relatorio = new IURelatorio(this, false);
+        Controller control = new Controller();
+        relatorio.exibir("Relatório dos Docentes Substitutos", "Docentes Substitutos", control.dataAllSubstituteTeacher());
+    }//GEN-LAST:event_MI_docenSubstitutosActionPerformed
+
+    private void MI_docenGeralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MI_docenGeralActionPerformed
+        IURelatorio relatorio = new IURelatorio(this, false);
+        Controller control = new Controller();
+        relatorio.exibir("Relatório dos Docentes", "Docentes", control.dataAllTeacher());
+    }//GEN-LAST:event_MI_docenGeralActionPerformed
 
     /**
      * @param args the command line arguments
@@ -202,14 +259,14 @@ public class IUPrincipal extends javax.swing.JFrame {
         control.addTechnician("1", "2", "Jorge", 1500.25, "T2", "Manutenção de rede");
         control.addEffectiveTeacher("1", "3", "Livia", 15000.30, "D1", "Doutor", "Visão Computacional");
 
-        control.addTechnician("2", "1", "Marcos", 1500.25, "T2", "Manutenção dos laborátorios");
-        control.addSubstituteTeacher("2", "2", "Felipe", 2000.5, "S1", "Mestre", 5);
+        control.addTechnician("2", "4", "Marcos", 1500.25, "T2", "Manutenção dos laborátorios");
+        control.addSubstituteTeacher("2", "5", "Felipe", 2000.5, "S1", "Mestre", 5);
         
         
-        control.addTechnician("3", "1", "Carol", 1002.25, "T1", "Manutenção dos laborátorios");
-        control.addSubstituteTeacher("3", "2", "Gabriel", 2500.5, "S2", "Mestre", 2);
+        control.addTechnician("3", "6", "Carol", 1002.25, "T1", "Manutenção dos laborátorios");
+        control.addSubstituteTeacher("3", "7", "Gabriel", 2500.5, "S2", "Mestre", 2);
         
-        control.addEffectiveTeacher("4", "1", "Joana", 8000.40, "D2", "Doutor", "Ecologia");
+        control.addEffectiveTeacher("4", "8", "Joana", 8000.40, "D2", "Doutor", "Ecologia");
         
         String relatorio = control.allData();
         System.out.println(relatorio);
@@ -225,8 +282,13 @@ public class IUPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem MI_departamentos;
+    private javax.swing.JMenuItem MI_docenEfetivos;
+    private javax.swing.JMenuItem MI_docenGeral;
+    private javax.swing.JMenuItem MI_docenSubstitutos;
+    private javax.swing.JMenuItem MI_funcGeral;
     private javax.swing.JMenuItem MI_geral;
     private javax.swing.JMenu MI_relatorios;
+    private javax.swing.JMenuItem MI_tecnicos;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu4;
@@ -236,17 +298,12 @@ public class IUPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }

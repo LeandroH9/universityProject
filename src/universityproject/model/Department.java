@@ -45,23 +45,84 @@ public class Department {
         }
     }
     
-    public String data(){
+    public double totalDepartmentSpend(){
+        double total = 0.0;
+        for(int i=0; i < qtdEmployee; i++)
+            total += employee[i].wage;
+        return total;
+    }
+    
+    public String allData(){
         String relatorio = "Codigo do departamento: " + code + "\n" + "Nome do departamento: " + name + "\n\n";
         relatorio += "Lista de Funcionários: \n";
         for(int i=0; i < qtdEmployee; i++){
             relatorio += employee[i].data();
         }
-        relatorio += "\n\n";
+        relatorio += "Gasto total com funcionários: " + totalDepartmentSpend() + "\n";
         return relatorio;
     }
 
+    public String resumeDepartment (){
+        String relatorio = "Código: " + getCode() + "\n"
+                         + "Nome: " +  getName() + "\n"
+                         + "Quantidade de funcionários: " + getQtdEmployee() + "\n"
+                         + "Gasto total com funcionários: " + totalDepartmentSpend() + "\n\n";
+        return relatorio;
+    }
+    
+    public String dataAllEmployee(){
+        String relatorio = "";
+        for(int i=0; i < qtdEmployee; i++){
+            relatorio += employee[i].data();
+        }
+        return relatorio;
+    }
+    
+    public String dataAllTechnician(){
+        String data = "";
+        for(int i=0; i < qtdEmployee; i++){
+            if(employee[i] instanceof Technician)
+                data += employee[i].data();
+        }
+        return data;
+    }
+    
+    public String dataAllTeacher(){
+        String data = "";
+        for(int i=0; i < qtdEmployee; i++){
+            if(employee[i] instanceof Teacher )
+                data += employee[i].data();
+        }
+        return data;
+    }
+    
+    public String dataAllSubstituteTeacher(){
+        String data = "";
+        for(int i=0; i < qtdEmployee; i++){
+            if(employee[i] instanceof SubstituteTeacher)
+                data += employee[i].data();
+        }
+        return data;
+    }
+    
+    public String dataAllEffectiveTeacher(){
+        String data = "";
+        for(int i=0; i < qtdEmployee; i++){
+            if(employee[i] instanceof EffectiveTeacher)
+                data += employee[i].data();
+        }
+        return data;
+    }
     public String getCode() {
         return code;
     }
-    
-    
-    
-    
-    
+
+    public String getName() {
+        return name;
+    }
+
+    public int getQtdEmployee() {
+        return qtdEmployee;
+    }
     
 }

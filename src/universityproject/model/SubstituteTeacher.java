@@ -11,7 +11,6 @@ package universityproject.model;
  */
 public class SubstituteTeacher extends Teacher{
     private int workload;
-    private String type;
  
     public SubstituteTeacher(String code, String name, double wage, String level, String titration, int workload){
         super(code, name, wage, level, titration);
@@ -26,7 +25,7 @@ public class SubstituteTeacher extends Teacher{
     
     @Override
     public String data(){
-        String relatorio = "Professor Substituto : " + getCode() + "\n" 
+        String relatorio = "Código do Professor Substituto : " + getCode() + "\n" 
                          + "Nome: " + getName() + "\n" + "Salário: " 
                           + getWage() + "\n" + "Nível: " + getLevel() + "\n"
                           + "Titulação: " + getTitration() + "\n" + "Carga Horária: " + getWorkload() + "\n\n";
@@ -37,9 +36,6 @@ public class SubstituteTeacher extends Teacher{
         return workload;
     }
 
-    public String getType() {
-        return type;
-    }
     
     
 }

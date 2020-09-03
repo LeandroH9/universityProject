@@ -86,35 +86,50 @@
                 <Property name="text" type="java.lang.String" value="Funcionarios"/>
               </Properties>
               <SubComponents>
-                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
+                <MenuItem class="javax.swing.JMenuItem" name="MI_funcGeral">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Geral"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MI_funcGeralActionPerformed"/>
+                  </Events>
                 </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem7">
+                <MenuItem class="javax.swing.JMenuItem" name="MI_tecnicos">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="T&#xe9;cnicos"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MI_tecnicosActionPerformed"/>
+                  </Events>
                 </MenuItem>
                 <Menu class="javax.swing.JMenu" name="jMenu6">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Docentes"/>
                   </Properties>
                   <SubComponents>
-                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem13">
+                    <MenuItem class="javax.swing.JMenuItem" name="MI_docenGeral">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Geral"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MI_docenGeralActionPerformed"/>
+                      </Events>
                     </MenuItem>
-                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem8">
+                    <MenuItem class="javax.swing.JMenuItem" name="MI_docenEfetivos">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Efetivos"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MI_docenEfetivosActionPerformed"/>
+                      </Events>
                     </MenuItem>
-                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem9">
+                    <MenuItem class="javax.swing.JMenuItem" name="MI_docenSubstitutos">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Substitutos"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MI_docenSubstitutosActionPerformed"/>
+                      </Events>
                     </MenuItem>
                   </SubComponents>
                 </Menu>
