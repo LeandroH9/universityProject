@@ -5,7 +5,7 @@
  */
 package universityproject.IU;
 
-import universityproject.controlador.Controlador;
+import universityproject.controlador.Controller;
 
 /**
  *
@@ -41,8 +41,8 @@ public class IUPrincipal extends javax.swing.JFrame {
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        MI_relatorios = new javax.swing.JMenu();
+        MI_geral = new javax.swing.JMenuItem();
         MI_departamentos = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
@@ -58,6 +58,7 @@ public class IUPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Projeto Universidade");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jMenu1.setText("Cadastros");
 
@@ -89,10 +90,15 @@ public class IUPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("Relatorios");
+        MI_relatorios.setText("Relatorios");
 
-        jMenuItem1.setText("Geral");
-        jMenu3.add(jMenuItem1);
+        MI_geral.setText("Geral");
+        MI_geral.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MI_geralActionPerformed(evt);
+            }
+        });
+        MI_relatorios.add(MI_geral);
 
         MI_departamentos.setText("Departamentos");
         MI_departamentos.addActionListener(new java.awt.event.ActionListener() {
@@ -100,7 +106,7 @@ public class IUPrincipal extends javax.swing.JFrame {
                 MI_departamentosActionPerformed(evt);
             }
         });
-        jMenu3.add(MI_departamentos);
+        MI_relatorios.add(MI_departamentos);
 
         jMenu5.setText("Funcionarios");
 
@@ -123,9 +129,9 @@ public class IUPrincipal extends javax.swing.JFrame {
 
         jMenu5.add(jMenu6);
 
-        jMenu3.add(jMenu5);
+        MI_relatorios.add(jMenu5);
 
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(MI_relatorios);
 
         jMenu4.setText("                                                         ");
         jMenuBar1.add(jMenu4);
@@ -152,6 +158,12 @@ public class IUPrincipal extends javax.swing.JFrame {
     private void MI_departamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MI_departamentosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_MI_departamentosActionPerformed
+
+    private void MI_geralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MI_geralActionPerformed
+        IURelatorio relatorio = new IURelatorio(this, false);
+        Controller control = new Controller();
+        relatorio.exibir("Relatório dos Departamentos", "Departamentos", control.allData());
+    }//GEN-LAST:event_MI_geralActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,13 +192,26 @@ public class IUPrincipal extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        Controlador control = new Controlador();
+        Controller control = new Controller();
         control.addDepartment("Matemática e Computação", "1", 30);
         control.addDepartment("Física", "2", 30);
-        control.addDepartment("Química", "3", 30);
+        control.addDepartment("Química", "3", 10);
+        control.addDepartment("Geografia", "4", 20);
+        
+        control.addTechnician("1", "1", "Renan", 1002.25, "T1", "Manutenção de computadores");
+        control.addTechnician("1", "2", "Jorge", 1500.25, "T2", "Manutenção de rede");
+        control.addEffectiveTeacher("1", "3", "Livia", 15000.30, "D1", "Doutor", "Visão Computacional");
+
+        control.addTechnician("2", "1", "Marcos", 1500.25, "T2", "Manutenção dos laborátorios");
+        control.addSubstituteTeacher("2", "2", "Felipe", 2000.5, "S1", "Mestre", 5);
         
         
-        String relatorio = control.viewDepartments();
+        control.addTechnician("3", "1", "Carol", 1002.25, "T1", "Manutenção dos laborátorios");
+        control.addSubstituteTeacher("3", "2", "Gabriel", 2500.5, "S2", "Mestre", 2);
+        
+        control.addEffectiveTeacher("4", "1", "Joana", 8000.40, "D2", "Doutor", "Ecologia");
+        
+        String relatorio = control.allData();
         System.out.println(relatorio);
         
         
@@ -200,15 +225,15 @@ public class IUPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem MI_departamentos;
+    private javax.swing.JMenuItem MI_geral;
+    private javax.swing.JMenu MI_relatorios;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem13;

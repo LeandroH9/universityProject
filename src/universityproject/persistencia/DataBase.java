@@ -37,6 +37,15 @@ public final class DataBase {
         } 
     }
     
+    public Department searchDepartment(String codeDepart){
+        for(int i = 0; i < contDepart; i++){
+            if(department[i].getCode().equals(codeDepart)){
+                return department[i];
+            }
+        }
+        return null;
+    }
+    
     public Department[] getDepartments(){
         Department departments[] = new Department[contDepart];
         for(int i=0; i < contDepart; i++){
@@ -48,4 +57,6 @@ public final class DataBase {
     public int getContDepart() {
         return contDepart;
     }
+    
+    
 }
