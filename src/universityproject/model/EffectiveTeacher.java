@@ -10,7 +10,6 @@ package universityproject.model;
  * @author leand
  */
 public class EffectiveTeacher extends Teacher{
-    private String type;
     private String area;
     
     public EffectiveTeacher(String code, String name, double wage, String level, String titration, String area){
@@ -26,16 +25,13 @@ public class EffectiveTeacher extends Teacher{
     
     @Override
     public String data(){
-        String relatorio = "Professor Substituto : " + getCode() + "\n" 
+        String relatorio = "Código do Professor Efetivo : " + getCode() + "\n" 
                          + "Nome: " + getName() + "\n" + "Salário: " 
                           + getWage() + "\n" + "Nível: " + getLevel() + "\n"
                           + "Titulação: " + getTitration() + "\n" + "Area: " + getArea() + "\n\n";
         return relatorio;
     }
 
-    public String getType() {
-        return type;
-    }
 
     public String getArea() {
         return area;
