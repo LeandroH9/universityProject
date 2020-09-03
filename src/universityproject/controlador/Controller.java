@@ -5,6 +5,7 @@
  */
 package universityproject.controlador;
 
+import universityproject.model.Department;
 import universityproject.model.University;
 
 /**
@@ -30,11 +31,31 @@ public class Controller {
         university.addSubstituteTeacher(codeDepart, code, name, wage, level, titration, workload);
     }
     
-     public String allData(){
+    public String allData(){
         return university.allData();
     }
-    /*
-    public String dataDepartments(){
-        return university.dataDepartments();
-    }*/
+     
+    public String resumeDepartment(){
+        return university.resumeDepartment();
+    }
+    
+    public String dataAllEmployee(){
+        return university.dataAllEmployee();
+    }
+    
+    public String dataAllTechnician(){
+        return university.dataAllTechnician();
+    }
+    
+    public String dataAllSubstituteTeacher(){
+        return university.dataAllSubstituteTeacher();
+    }
+    
+    public String dataAllEffectiveTeacher(){
+        return university.dataAllEffectiveTeacher();
+    }
+    
+    public String dataAllTeacher(){
+        return university.dataAllTeacher();
+    }
 }
