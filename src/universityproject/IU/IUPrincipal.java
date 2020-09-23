@@ -244,7 +244,9 @@ public class IUPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu7MouseClicked
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        (new IUConsulta(this, false)).consultarDepartamentoPorNome("Consulta", "Consulta de departamento por código", "");        
+        IUConsulta consulta = new IUConsulta(this, false);
+        Controller control = new Controller();
+        consulta.exibir("Consulta", "Consulta de departamento por código");        
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**

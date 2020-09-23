@@ -5,6 +5,8 @@
  */
 package universityproject.IU;
 
+import universityproject.controlador.Controller;
+
 /**
  *
  * @author gabriel
@@ -19,13 +21,21 @@ public class IUConsulta extends javax.swing.JDialog {
         initComponents();
     }
 
-    public void consultarDepartamentoPorNome(String barraTitulo, String titulo, String consulta ){
+    public void exibir(String barraTitulo, String titulo){
         setTitle(barraTitulo);
         jLabel1.setText(titulo);
-        jTextArea1.setText(consulta);
+        jTextArea1.setText("");
         setVisible(true);
     }
 
+    public void exibirConsulta(String consulta) {
+        jTextArea1.setText(consulta);
+    }
+    
+    public String getTextField() {
+        return jTextField1.getText();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -43,7 +53,8 @@ public class IUConsulta extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("                                               Consultas");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setText("                     Consultas");
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -56,6 +67,11 @@ public class IUConsulta extends javax.swing.JDialog {
         });
 
         jButton1.setText("OK");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -74,8 +90,8 @@ public class IUConsulta extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)))
-                .addContainerGap(38, Short.MAX_VALUE))
+                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,6 +117,11 @@ public class IUConsulta extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        Controller control = new Controller();
+        this.exibirConsulta(control.searchDepartment(this.getTextField()));
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
