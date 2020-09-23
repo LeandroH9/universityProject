@@ -162,6 +162,14 @@ public class IUPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu4);
 
         jMenu7.setText("Sair");
+        jMenu7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu7MouseClicked(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jMenu7MouseReleased(evt);
+            }
+        });
         jMenuBar1.add(jMenu7);
 
         setJMenuBar(jMenuBar1);
@@ -221,6 +229,14 @@ public class IUPrincipal extends javax.swing.JFrame {
         Controller control = new Controller();
         relatorio.exibir("Relatório dos Docentes", "Docentes", control.dataAllTeacher());
     }//GEN-LAST:event_MI_docenGeralActionPerformed
+
+    private void jMenu7MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu7MouseReleased
+        
+    }//GEN-LAST:event_jMenu7MouseReleased
+
+    private void jMenu7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu7MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jMenu7MouseClicked
 
     /**
      * @param args the command line arguments
