@@ -73,6 +73,11 @@ public class IUPrincipal extends javax.swing.JFrame {
         jMenu2.setText("Consultas");
 
         jMenuItem5.setText("Departamento Específico");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem5);
 
         jMenuItem4.setText("Departamentos com Gasto em Faixa Específica");
@@ -237,6 +242,10 @@ public class IUPrincipal extends javax.swing.JFrame {
     private void jMenu7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu7MouseClicked
         System.exit(0);
     }//GEN-LAST:event_jMenu7MouseClicked
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        (new IUConsulta(this, false)).consultarDepartamentoPorNome("Consulta", "Consulta de departamento por código", "");        
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments
