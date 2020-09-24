@@ -18,6 +18,7 @@ public class IUPrincipal extends javax.swing.JFrame {
      */
     public IUPrincipal() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -193,7 +194,7 @@ public class IUPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(MI_relatorios);
 
-        jMenu4.setText("                                                         ");
+        jMenu4.setText("                                                                                                                        ");
         jMenuBar1.add(jMenu4);
 
         jMenu7.setText("Sair");
@@ -213,11 +214,11 @@ public class IUPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 297, Short.MAX_VALUE)
+            .addGap(0, 379, Short.MAX_VALUE)
         );
 
         pack();

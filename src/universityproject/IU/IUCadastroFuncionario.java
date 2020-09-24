@@ -5,22 +5,26 @@
  */
 package universityproject.IU;
 
+import javax.swing.JOptionPane;
+import universityproject.controlador.Controller;
 import universityproject.model.Constant;
+import universityproject.model.Department;
 
 /**
  *
  * @author leand
  */
 public class IUCadastroFuncionario extends javax.swing.JDialog {
-
+     Controller control = new Controller();
     /**
      * Creates new form IUCadastroFuncionarios
      */
     public IUCadastroFuncionario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        lb_area.setVisible(false);
-        cb_area.setVisible(false);
+        this.setLocationRelativeTo(null);
+        lb_teacher.setVisible(false);
+        cb_teacher.setVisible(false);
     }
 
     /**
@@ -45,15 +49,35 @@ public class IUCadastroFuncionario extends javax.swing.JDialog {
         cb_nivel = new javax.swing.JComboBox<>();
         lb_atributos = new javax.swing.JLabel();
         cb_atributos = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
-        lb_area = new javax.swing.JLabel();
-        cb_area = new javax.swing.JComboBox<>();
+        btn_salvar = new javax.swing.JButton();
+        lb_teacher = new javax.swing.JLabel();
+        cb_teacher = new javax.swing.JComboBox<>();
+        jPanel2 = new javax.swing.JPanel();
+        lb_locDepart = new javax.swing.JLabel();
+        tb_codDepart = new javax.swing.JTextField();
+        btn_locDdepart = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Cadastro de Funcionario"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Cadastro do Funcionario"));
 
         jLabel1.setText("Código");
+
+        tb_codigo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tb_codigoFocusLost(evt);
+            }
+        });
+        tb_codigo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tb_codigoMouseClicked(evt);
+            }
+        });
+        tb_codigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tb_codigoActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Nome");
 
@@ -94,9 +118,14 @@ public class IUCadastroFuncionario extends javax.swing.JDialog {
 
         cb_atributos.setEnabled(false);
 
-        jButton1.setText("Salvar");
+        btn_salvar.setText("Salvar");
+        btn_salvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salvarActionPerformed(evt);
+            }
+        });
 
-        lb_area.setText("Área");
+        lb_teacher.setText("label_especifico");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -105,37 +134,40 @@ public class IUCadastroFuncionario extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(tb_salario, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(tb_codigo))
-                    .addComponent(jLabel3))
-                .addGap(40, 40, 40)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(tb_salario, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tb_codigo))
+                        .addGap(40, 40, 40)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(cb_categoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
-                        .addGap(40, 40, 40)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(cb_nivel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(40, 40, 40)
+                            .addComponent(tb_name))
+                        .addGap(24, 24, 24))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lb_atributos)
-                                    .addComponent(lb_area))
-                                .addGap(0, 53, Short.MAX_VALUE))
-                            .addComponent(cb_atributos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cb_area, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(tb_name))
-                .addContainerGap())
+                                .addComponent(jLabel3)
+                                .addGap(64, 64, 64)
+                                .addComponent(jLabel5))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(96, 96, 96)
+                                .addComponent(cb_categoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(38, 38, 38)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cb_nivel, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lb_atributos)
+                            .addComponent(cb_atributos, 0, 117, Short.MAX_VALUE)
+                            .addComponent(lb_teacher)
+                            .addComponent(cb_teacher, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(19, 19, 19))))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(193, 193, 193)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(221, 221, 221)
+                .addComponent(btn_salvar)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,27 +192,74 @@ public class IUCadastroFuncionario extends javax.swing.JDialog {
                     .addComponent(cb_categoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cb_nivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cb_atributos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(lb_area, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cb_area, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16)
-                .addComponent(jButton1)
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addComponent(lb_teacher, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cb_teacher, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_salvar)
+                .addGap(54, 54, 54))
+        );
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Cabecalho"));
+
+        lb_locDepart.setText("Código do  Departamento");
+
+        tb_codDepart.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tb_codDepartFocusLost(evt);
+            }
+        });
+
+        btn_locDdepart.setText("Localizar Departamento");
+        btn_locDdepart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_locDdepartActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(9, 9, 9)
+                .addComponent(lb_locDepart)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tb_codDepart, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_locDdepart)
+                .addGap(63, 63, 63))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lb_locDepart, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tb_codDepart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_locDdepart))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -191,14 +270,17 @@ public class IUCadastroFuncionario extends javax.swing.JDialog {
         int op = cb_categoria.getSelectedIndex();
         cb_nivel.removeAllItems();
         cb_atributos.removeAllItems();
+        cb_teacher.removeAllItems();
         
-        lb_area.setVisible(false);
-        cb_area.setVisible(false);
+        lb_teacher.setVisible(false);
+        cb_teacher.setVisible(false);
         
         String atributos[];
    
         if (op == 0){
             atributos = Constant.funcao;
+            lb_atributos.setText("Função");
+            
             cb_nivel.addItem("T1");
             cb_nivel.addItem("T2");  
             
@@ -207,23 +289,35 @@ public class IUCadastroFuncionario extends javax.swing.JDialog {
             String area[] = Constant.area;
             
             lb_atributos.setText("Titulação");
+            
             cb_nivel.addItem("D1");
             cb_nivel.addItem("D2");
             cb_nivel.addItem("D3");
             
             for(int i=0; i < area.length; i++){
-                cb_area.addItem(area[i]);
+                cb_teacher.addItem(area[i]);
             }
             
-            lb_area.setVisible(true);
-            cb_area.setVisible(true);
+            lb_teacher.setText("Área");
+            lb_teacher.setVisible(true);
+            cb_teacher.setVisible(true);
             
         } else {
-            atributos = Constant.cargaHoraria;
-            lb_atributos.setText("Carga Horária");
+            atributos = Constant.titulacao;
+            int cargaHoraria[] = Constant.cargaHoraria;
+            
+            lb_atributos.setText("Titulacao");
             
             cb_nivel.addItem("S1");
             cb_nivel.addItem("S2");
+            
+            for(int i=0; i < cargaHoraria.length; i++){
+                cb_teacher.addItem(Integer.toString(cargaHoraria[i]));
+            }
+            
+            lb_teacher.setText("Carga Horária");
+            lb_teacher.setVisible(true);
+            cb_teacher.setVisible(true);
 
         }
         
@@ -251,6 +345,69 @@ public class IUCadastroFuncionario extends javax.swing.JDialog {
     private void cb_nivelFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cb_nivelFocusLost
         // TODO add your handling code here:
     }//GEN-LAST:event_cb_nivelFocusLost
+
+    private void tb_codigoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tb_codigoFocusLost
+       
+    }//GEN-LAST:event_tb_codigoFocusLost
+
+    private void btn_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarActionPerformed
+        String codeDepart = tb_codDepart.getText();
+        
+        if(control.searchDepartmentByCode(codeDepart) == null){
+            JOptionPane.showMessageDialog(null, "Não existe um departamento com este código\nPor favor, insira um código válido");
+            return;
+        }
+        String codigo = tb_codigo.getText();
+        if(!control.searchEmployeeByCode(codigo).equals("")){
+            JOptionPane.showMessageDialog(null, "Já existe um funcionário com este código\nPor favor, insira um código válido");
+            return;
+        }
+        
+        String nome = tb_name.getText();
+        Double salario = Double.parseDouble(tb_salario.getText());
+        String nivel = (String) cb_nivel.getSelectedItem();
+        String atributo = (String) cb_atributos.getSelectedItem(); 
+        
+        int opCat = cb_categoria.getSelectedIndex();
+        
+        if(opCat == 0){
+            control.addTechnician(codeDepart, codigo, nome, salario, nivel, atributo);
+        } else if (opCat == 1){
+            String area = (String) cb_teacher.getSelectedItem();
+            control.addEffectiveTeacher(codeDepart, codigo, nome, salario, nivel, atributo, area);
+        } else {
+            int cargaHoraria = Integer.parseInt((String) cb_teacher.getSelectedItem());
+            control.addSubstituteTeacher(codeDepart, codigo, nome, salario, nivel, atributo, cargaHoraria);
+        }
+        
+        setVisible(false);
+        
+    }//GEN-LAST:event_btn_salvarActionPerformed
+
+    private void tb_codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tb_codigoActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_tb_codigoActionPerformed
+
+    private void tb_codigoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_codigoMouseClicked
+        
+    }//GEN-LAST:event_tb_codigoMouseClicked
+
+    private void btn_locDdepartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_locDdepartActionPerformed
+        IULocalizarDepartamentos localizar = new IULocalizarDepartamentos(null, true);
+        localizar.setVisible(true);
+
+        String codigo = localizar.getCodigo();
+        Department d = control.searchDepartmentByCode(codigo);
+
+        if (d != null){
+            tb_codDepart.setText(d.getCode());
+        }
+    }//GEN-LAST:event_btn_locDdepartActionPerformed
+
+    private void tb_codDepartFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tb_codDepartFocusLost
+        
+    }//GEN-LAST:event_tb_codDepartFocusLost
 
     /**
      * @param args the command line arguments
@@ -296,19 +453,23 @@ public class IUCadastroFuncionario extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cb_area;
+    private javax.swing.JButton btn_locDdepart;
+    private javax.swing.JButton btn_salvar;
     private javax.swing.JComboBox<String> cb_atributos;
     private javax.swing.JComboBox<String> cb_categoria;
     private javax.swing.JComboBox<String> cb_nivel;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> cb_teacher;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lb_area;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lb_atributos;
+    private javax.swing.JLabel lb_locDepart;
+    private javax.swing.JLabel lb_teacher;
+    private javax.swing.JTextField tb_codDepart;
     private javax.swing.JTextField tb_codigo;
     private javax.swing.JTextField tb_name;
     private javax.swing.JTextField tb_salario;

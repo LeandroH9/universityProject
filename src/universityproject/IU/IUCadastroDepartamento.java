@@ -21,7 +21,7 @@ public class IUCadastroDepartamento extends javax.swing.JDialog {
     public IUCadastroDepartamento(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        lb_msg.setVisible(false);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -41,11 +41,10 @@ public class IUCadastroDepartamento extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         tb_qtdMax = new javax.swing.JTextField();
         btn_salvar = new javax.swing.JButton();
-        lb_msg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Cabecalho"));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Cadastrar departamento"));
 
         jLabel1.setText("Código");
 
@@ -57,7 +56,7 @@ public class IUCadastroDepartamento extends javax.swing.JDialog {
 
         jLabel2.setText("Nome");
 
-        jLabel3.setText("Quantidade máxima de funcionários");
+        jLabel3.setText("Quantidade de funcionários");
 
         btn_salvar.setText("Salvar");
         btn_salvar.addActionListener(new java.awt.event.ActionListener() {
@@ -66,36 +65,30 @@ public class IUCadastroDepartamento extends javax.swing.JDialog {
             }
         });
 
-        lb_msg.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lb_msg.setForeground(new java.awt.Color(255, 0, 0));
-        lb_msg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lb_msg.setText("DEPARTAMENTO CADASTRADO COM SUCESSO");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(86, 86, 86)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(tb_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(29, 29, 29)
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
+                        .addComponent(btn_salvar)
+                        .addGap(134, 134, 134))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel1)
+                                .addComponent(tb_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tb_qtdMax, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(tb_nome, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(tb_qtdMax, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_salvar)
-                        .addGap(29, 29, 29))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addComponent(lb_msg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(113, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,15 +103,18 @@ public class IUCadastroDepartamento extends javax.swing.JDialog {
                     .addComponent(tb_nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btn_salvar)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tb_qtdMax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                .addComponent(lb_msg)
-                .addContainerGap())
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 20, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tb_qtdMax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_salvar))
+                        .addGap(76, 76, 76))))
         );
+
+        jLabel3.getAccessibleContext().setAccessibleName("Quantidade de funcionários:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -132,9 +128,9 @@ public class IUCadastroDepartamento extends javax.swing.JDialog {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(76, 76, 76)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
 
         pack();
@@ -152,8 +148,7 @@ public class IUCadastroDepartamento extends javax.swing.JDialog {
         int qtdMax = Integer.parseInt(tb_qtdMax.getText());
         
         control.addDepartment(nome, codigo, qtdMax);
-        lb_msg.setVisible(true);
-        
+        setVisible(false);
     }//GEN-LAST:event_btn_salvarActionPerformed
 
     /**
@@ -204,7 +199,6 @@ public class IUCadastroDepartamento extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lb_msg;
     private javax.swing.JTextField tb_codigo;
     private javax.swing.JTextField tb_nome;
     private javax.swing.JTextField tb_qtdMax;

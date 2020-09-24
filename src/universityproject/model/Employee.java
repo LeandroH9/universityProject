@@ -53,7 +53,8 @@ public abstract class Employee {
     public String getAllData() {
         return "Nome: " + getName()
                + "\nCódigo: " + getCode()
-               + "\nSalário: " + Double.toString(getWage())
+               + "\nSalário Base: " + Double.toString(getWage())
+               + "\nSalário Total: " + Double.toString(calculateWage())
                + "\nNivel: " + getLevel()
                + "\nTipo: " + getType() + "\n\n";
     }

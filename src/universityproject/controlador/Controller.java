@@ -60,12 +60,20 @@ public class Controller {
         return university.dataAllTeacher();
     }
     
+    public Department[] getDepartments(){
+        return university.getDepartments();
+    }
+    
     public String searchDepartment(String code) {
         Department department = university.searchDepartment(code);
         if(department != null){
             return (department).allData();
         }
         return "";
+    }
+    
+    public Department searchDepartmentByCode(String code){
+        return university.searchDepartment(code);
     }
     
     public String searchEmployeeByCode(String code) {
