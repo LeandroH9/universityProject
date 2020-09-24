@@ -32,8 +32,8 @@ public class IUPrincipal extends javax.swing.JFrame {
         jMenuItem15 = new javax.swing.JMenuItem();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem14 = new javax.swing.JMenuItem();
+        MI_adddepartamentos = new javax.swing.JMenuItem();
+        MI_addfuncionarios = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -62,11 +62,21 @@ public class IUPrincipal extends javax.swing.JFrame {
 
         jMenu1.setText("Cadastros");
 
-        jMenuItem3.setText("Departamento");
-        jMenu1.add(jMenuItem3);
+        MI_adddepartamentos.setText("Departamento");
+        MI_adddepartamentos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MI_adddepartamentosActionPerformed(evt);
+            }
+        });
+        jMenu1.add(MI_adddepartamentos);
 
-        jMenuItem14.setText("Funcionario");
-        jMenu1.add(jMenuItem14);
+        MI_addfuncionarios.setText("Funcionario");
+        MI_addfuncionarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MI_addfuncionariosActionPerformed(evt);
+            }
+        });
+        jMenu1.add(MI_addfuncionarios);
 
         jMenuBar1.add(jMenu1);
 
@@ -247,6 +257,16 @@ public class IUPrincipal extends javax.swing.JFrame {
         (new IUConsulta(this, false)).consultarDepartamentoPorNome("Consulta", "Consulta de departamento por código", "");        
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
+    private void MI_adddepartamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MI_adddepartamentosActionPerformed
+        IUCadastroDepartamento cadastro = new IUCadastroDepartamento(this, true);
+        cadastro.setVisible(true);
+    }//GEN-LAST:event_MI_adddepartamentosActionPerformed
+
+    private void MI_addfuncionariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MI_addfuncionariosActionPerformed
+        IUCadastroFuncionario cadastro = new IUCadastroFuncionario(this, true);
+        cadastro.setVisible(true);
+    }//GEN-LAST:event_MI_addfuncionariosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -306,6 +326,8 @@ public class IUPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem MI_adddepartamentos;
+    private javax.swing.JMenuItem MI_addfuncionarios;
     private javax.swing.JMenuItem MI_departamentos;
     private javax.swing.JMenuItem MI_docenEfetivos;
     private javax.swing.JMenuItem MI_docenGeral;
@@ -323,10 +345,8 @@ public class IUPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPopupMenu.Separator jSeparator1;

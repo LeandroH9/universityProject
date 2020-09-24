@@ -17,4 +17,9 @@ public class Constant {
      public static final int D3 = 20;
      public static final int S1 = 5;
      public static final int S2 = 10;
+     
+     public static final String funcao[] = {"Assessor", "Laboratório", "Secretário"};
+     public static final String titulacao[] = {"Graduação", "Mestrado", "Doutorado", "Livre Docente", "Titular"};
+     public static final String cargaHoraria[] = {"12h", "24h"};
+     public static final String area[] = {"Biológicas",  "Exatas", "Humanas", "Saúde"};
 }

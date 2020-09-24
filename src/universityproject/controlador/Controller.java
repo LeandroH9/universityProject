@@ -58,4 +58,5 @@ public class Controller {
     public String dataAllTeacher(){
         return university.dataAllTeacher();
     }
+    
 }
