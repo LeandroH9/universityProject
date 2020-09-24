@@ -46,6 +46,16 @@ public final class DataBase {
         return null;
     }
     
+    public String searchDepartmentByInterval(double from, double to){
+        String result = "";
+        for(int i = 0; i < contDepart; i++){
+            if(department[i].totalDepartmentSpend() >= from && department[i].totalDepartmentSpend() <= to){
+                result += department[i].resumeDepartment();
+            }
+        }
+        return result;
+    }
+    
     public Department[] getDepartments(){
         Department departments[] = new Department[contDepart];
         for(int i=0; i < contDepart; i++){

@@ -140,4 +140,12 @@ public class University {
     public int getContDepart() {
         return database.getContDepart();
     }
+    
+    public String searchDepartmentByInterval(double from, double to){
+        return database.searchDepartmentByInterval(from, to);
+    }
+    
+    public String searchEmployeeByInterval(double from, double to) {
+        return (new Department("","",0)).searchEmployeeByInterval(from, to);
+    }
 }

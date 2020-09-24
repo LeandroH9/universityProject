@@ -65,7 +65,7 @@ public class Controller {
         if(department != null){
             return (department).allData();
         }
-        return("");
+        return "";
     }
     
     public String searchEmployeeByCode(String code) {
@@ -76,7 +76,19 @@ public class Controller {
         return "";
     }
     
+    public String searchEmployeeByName(String code) {
+        return (new Department("","",0)).searchEmployeeByName(code);
+    }
+    
     public University getUniversity() {
         return university;
+    }
+    
+    public String searchDepartmentByInterval(double from, double to){
+        return university.searchDepartmentByInterval(from, to);
+    }
+    
+    public String searchEmployeeByInterval(double from, double to) {
+        return university.searchEmployeeByInterval(from, to);
     }
 }

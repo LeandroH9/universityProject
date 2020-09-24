@@ -81,6 +81,11 @@ public class IUPrincipal extends javax.swing.JFrame {
         jMenu2.add(jMenuItem5);
 
         jMenuItem4.setText("Departamentos com Gasto em Faixa Específica");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem4);
         jMenu2.add(jSeparator1);
 
@@ -93,9 +98,19 @@ public class IUPrincipal extends javax.swing.JFrame {
         jMenu2.add(jMenuItem10);
 
         jMenuItem11.setText("Funcionário pelo Nome");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem11);
 
         jMenuItem2.setText("Funcionários com Salário em Faixa Específica");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem2);
 
         jMenuBar1.add(jMenu2);
@@ -259,6 +274,24 @@ public class IUPrincipal extends javax.swing.JFrame {
         Controller control = new Controller();
         consulta.exibir("Consulta", "Consulta de funcionário por código"); 
     }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        IUConsulta consulta = new IUConsulta(this, false);
+        Controller control = new Controller();
+        consulta.exibir("Consulta", "Consulta de funcionário por nome");
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        IUConsultaPorFaixa consulta = new IUConsultaPorFaixa(this, false);
+        Controller control = new Controller();
+        consulta.exibir("Consulta", "Consulta de departamento em faixa");
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        IUConsultaPorFaixa consulta = new IUConsultaPorFaixa(this, false);
+        Controller control = new Controller();
+        consulta.exibir("Consulta", "Consulta de funcionário em faixa");
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments

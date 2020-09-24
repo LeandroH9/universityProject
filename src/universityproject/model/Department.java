@@ -149,4 +149,44 @@ public class Department {
         }
         return null;
     }
+    
+    public String searchEmployeeByName(String code) {
+        Controller control = new Controller();
+        Department departments[] = control.getUniversity().getDepartments();
+        Employee empList[];
+        int deptMax = control.getUniversity().getContDepart();
+        int empMax;
+        String relatorio = "";
+        
+        for(int i = 0; i < deptMax; i++) {
+            empList = departments[i].getAllEmployee();
+            empMax = departments[i].getQtdEmployee();
+            for (int j = 0; j < empMax; j++) {
+                if (empList[j].getName().equals(code)) {
+                    relatorio += empList[j].getAllData();
+                }
+            }
+        }
+        return relatorio;
+    }
+    
+    public String searchEmployeeByInterval(double from, double to) {
+        Controller control = new Controller();
+        Department departments[] = control.getUniversity().getDepartments();
+        Employee empList[];
+        int deptMax = control.getUniversity().getContDepart();
+        int empMax;
+        String relatorio = "";
+        
+        for(int i = 0; i < deptMax; i++) {
+            empList = departments[i].getAllEmployee();
+            empMax = departments[i].getQtdEmployee();
+            for (int j = 0; j < empMax; j++) {
+                if (empList[j].getWage() >= from && empList[j].getWage() <= to) {
+                    relatorio += empList[j].getAllData();
+                }
+            }
+        }
+        return relatorio;
+    }
 }
