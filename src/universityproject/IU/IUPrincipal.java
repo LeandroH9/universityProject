@@ -289,6 +289,7 @@ public class IUPrincipal extends javax.swing.JFrame {
         cadastro.setVisible(true);
     }//GEN-LAST:event_MI_addfuncionariosActionPerformed
 
+
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
         IUConsulta consulta = new IUConsulta(this, false);
         Controller control = new Controller();
