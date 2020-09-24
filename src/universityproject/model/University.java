@@ -134,5 +134,10 @@ public class University {
         return name;
     }
     
-    
+    public Department[] getDepartments(){
+        return database.getDepartments();
+    }
+    public int getContDepart() {
+        return database.getContDepart();
+    }
 }

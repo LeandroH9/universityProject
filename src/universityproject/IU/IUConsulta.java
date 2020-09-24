@@ -32,9 +32,7 @@ public class IUConsulta extends javax.swing.JDialog {
         jTextArea1.setText(consulta);
     }
     
-    public String getTextField() {
-        return jTextField1.getText();
-    }
+  
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -120,7 +118,14 @@ public class IUConsulta extends javax.swing.JDialog {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         Controller control = new Controller();
-        this.exibirConsulta(control.searchDepartment(this.getTextField()));
+        String type = jLabel1.getText();
+        if(type.equals("Consulta de departamento por código")) {
+            this.exibirConsulta(control.searchDepartment(jTextField1.getText()));
+        }
+        if(type.equals("Consulta de funcionário por código")) {
+            this.exibirConsulta(control.searchEmployeeByCode(jTextField1.getText()));
+        }
+        
     }//GEN-LAST:event_jButton1MouseClicked
 
     /**

@@ -5,6 +5,8 @@
  */
 package universityproject.model;
 
+import universityproject.controlador.Controller;
+
 /**
  *
  * @author leand
@@ -125,4 +127,26 @@ public class Department {
         return qtdEmployee;
     }
     
+    public Employee[] getAllEmployee(){
+        return this.employee;
+    }
+    
+    public Employee searchEmployeeByCode(String code) {
+        Controller control = new Controller();
+        Department departments[] = control.getUniversity().getDepartments();
+        Employee empList[];
+        int deptMax = control.getUniversity().getContDepart();
+        int empMax;
+        
+        for(int i = 0; i < deptMax; i++) {
+            empList = departments[i].getAllEmployee();
+            empMax = departments[i].getQtdEmployee();
+            for (int j = 0; j < empMax; j++) {
+                if (empList[j].getCode().equals(code)) {
+                    return empList[j];
+                }
+            }
+        }
+        return null;
+    }
 }

@@ -85,6 +85,11 @@ public class IUPrincipal extends javax.swing.JFrame {
         jMenu2.add(jSeparator1);
 
         jMenuItem10.setText("Funcionário pelo Código");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem10);
 
         jMenuItem11.setText("Funcionário pelo Nome");
@@ -248,6 +253,12 @@ public class IUPrincipal extends javax.swing.JFrame {
         Controller control = new Controller();
         consulta.exibir("Consulta", "Consulta de departamento por código");        
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        IUConsulta consulta = new IUConsulta(this, false);
+        Controller control = new Controller();
+        consulta.exibir("Consulta", "Consulta de funcionário por código"); 
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     /**
      * @param args the command line arguments
