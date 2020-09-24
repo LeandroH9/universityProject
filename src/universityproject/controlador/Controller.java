@@ -6,6 +6,7 @@
 package universityproject.controlador;
 
 import universityproject.model.Department;
+import universityproject.model.Employee;
 import universityproject.model.University;
 
 /**
@@ -59,4 +60,36 @@ public class Controller {
         return university.dataAllTeacher();
     }
     
+    public String searchDepartment(String code) {
+        Department department = university.searchDepartment(code);
+        if(department != null){
+            return (department).allData();
+        }
+        return "";
+    }
+    
+    public String searchEmployeeByCode(String code) {
+        Employee employee = (new Department("","",0)).searchEmployeeByCode(code);
+        if(employee != null) {
+            return(employee.getAllData());
+        }
+        return "";
+    }
+    
+    public String searchEmployeeByName(String code) {
+        return (new Department("","",0)).searchEmployeeByName(code);
+    }
+    
+    public University getUniversity() {
+        return university;
+    }
+    
+    public String searchDepartmentByInterval(double from, double to){
+        return university.searchDepartmentByInterval(from, to);
+    }
+    
+    public String searchEmployeeByInterval(double from, double to) {
+        return university.searchEmployeeByInterval(from, to);
+    }
 }
+

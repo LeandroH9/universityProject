@@ -5,6 +5,8 @@
  */
 package universityproject.model;
 
+
+
 /**
  *
  * @author leand
@@ -48,9 +50,13 @@ public abstract class Employee {
         return type;
     }
     
-    
-
-    
+    public String getAllData() {
+        return "Nome: " + getName()
+               + "\nCódigo: " + getCode()
+               + "\nSalário: " + Double.toString(getWage())
+               + "\nNivel: " + getLevel()
+               + "\nTipo: " + getType() + "\n\n";
+    }
     
     
 }

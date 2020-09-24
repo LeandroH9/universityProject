@@ -134,5 +134,18 @@ public class University {
         return name;
     }
     
+    public Department[] getDepartments(){
+        return database.getDepartments();
+    }
+    public int getContDepart() {
+        return database.getContDepart();
+    }
     
+    public String searchDepartmentByInterval(double from, double to){
+        return database.searchDepartmentByInterval(from, to);
+    }
+    
+    public String searchEmployeeByInterval(double from, double to) {
+        return (new Department("","",0)).searchEmployeeByInterval(from, to);
+    }
 }
