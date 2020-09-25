@@ -44,8 +44,18 @@ public class IUCadastroDepartamento extends javax.swing.JDialog {
         btn_salvar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Cadastrar departamento"));
+        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel2MouseClicked(evt);
+            }
+        });
 
         jLabel1.setText("Código");
 
@@ -146,13 +156,10 @@ public class IUCadastroDepartamento extends javax.swing.JDialog {
     private void tb_codigoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tb_codigoFocusLost
         String codigo = tb_codigo.getText();
         Department d = control.searchDepartmentByCode(codigo);
-        if( d != null){
-            btn_salvar.setEnabled(false);
-            
-        } else {
-            btn_salvar.setEnabled(true);
+        btn_salvar.setEnabled(true);
+        if( d != null) {
+            btn_salvar.setEnabled(false);  
         }
-        
     }//GEN-LAST:event_tb_codigoFocusLost
 
     private void btn_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarActionPerformed
@@ -168,6 +175,14 @@ public class IUCadastroDepartamento extends javax.swing.JDialog {
     private void tb_nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tb_nomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tb_nomeActionPerformed
+
+    private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
+        jPanel2.grabFocus();
+    }//GEN-LAST:event_jPanel2MouseClicked
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        jPanel2.grabFocus();
+    }//GEN-LAST:event_formMouseClicked
 
     /**
      * @param args the command line arguments
