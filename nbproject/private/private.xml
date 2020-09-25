@@ -3,10 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/leand/Desktop/GIT/universityProject/src/universityproject/IU/IUPrincipal.java</file>
             <file>file:/C:/Users/leand/Desktop/GIT/universityProject/src/universityproject/model/Department.java</file>
             <file>file:/C:/Users/leand/Desktop/GIT/universityProject/src/universityproject/IU/IUCadastroDepartamento.java</file>
             <file>file:/C:/Users/leand/Desktop/GIT/universityProject/src/universityproject/IU/IUCadastroFuncionario.java</file>
+=======
+            <file>file:/C:/Users/gabriel/Desktop/Programação/Java/universityProject/src/universityproject/model/Department.java</file>
+            <file>file:/C:/Users/gabriel/Desktop/Programação/Java/universityProject/src/universityproject/IU/IUConsulta.java</file>
+            <file>file:/C:/Users/gabriel/Desktop/Programação/Java/universityProject/src/universityproject/IU/IUPrincipal.java</file>
+            <file>file:/C:/Users/gabriel/Desktop/Programação/Java/universityProject/src/universityproject/IU/IUConsultaPorFaixa.java</file>
+            <file>file:/C:/Users/gabriel/Desktop/Programação/Java/universityProject/src/universityproject/persistencia/DataBase.java</file>
+            <file>file:/C:/Users/gabriel/Desktop/Programação/Java/universityProject/src/universityproject/controlador/Controller.java</file>
+            <file>file:/C:/Users/gabriel/Desktop/Programação/Java/universityProject/src/universityproject/model/University.java</file>
+>>>>>>> d1fabbf001685718ac0f38f84ae7bfb4c2cc2ec7
         </group>
     </open-files>
 </project-private>
