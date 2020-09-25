@@ -15,7 +15,6 @@ public class EffectiveTeacher extends Teacher{
     public EffectiveTeacher(String code, String name, double wage, String level, String titration, String area){
         super(code, name, wage, level, titration);
         this.area = area;
-        type = "Professor Efetivo";
     }
     
     @Override

@@ -15,7 +15,6 @@ public class SubstituteTeacher extends Teacher{
     public SubstituteTeacher(String code, String name, double wage, String level, String titration, int workload){
         super(code, name, wage, level, titration);
         this.workload = workload;
-        type = "Professor Substituto";
     }
     
     @Override

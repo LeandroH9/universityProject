@@ -6,6 +6,7 @@
 package universityproject.IU;
 
 import universityproject.controlador.Controller;
+import universityproject.model.Department;
 
 /**
  *
@@ -56,6 +57,12 @@ public class IUCadastroDepartamento extends javax.swing.JDialog {
 
         jLabel2.setText("Nome");
 
+        tb_nome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tb_nomeActionPerformed(evt);
+            }
+        });
+
         jLabel3.setText("Quantidade de funcionários");
 
         btn_salvar.setText("Salvar");
@@ -104,14 +111,14 @@ public class IUCadastroDepartamento extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(0, 20, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(tb_qtdMax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn_salvar))
-                        .addGap(76, 76, 76))))
+                        .addGap(76, 76, 76))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         jLabel3.getAccessibleContext().setAccessibleName("Quantidade de funcionários:");
@@ -138,6 +145,13 @@ public class IUCadastroDepartamento extends javax.swing.JDialog {
 
     private void tb_codigoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tb_codigoFocusLost
         String codigo = tb_codigo.getText();
+        Department d = control.searchDepartmentByCode(codigo);
+        if( d != null){
+            btn_salvar.setEnabled(false);
+            
+        } else {
+            btn_salvar.setEnabled(true);
+        }
         
     }//GEN-LAST:event_tb_codigoFocusLost
 
@@ -150,6 +164,10 @@ public class IUCadastroDepartamento extends javax.swing.JDialog {
         control.addDepartment(nome, codigo, qtdMax);
         setVisible(false);
     }//GEN-LAST:event_btn_salvarActionPerformed
+
+    private void tb_nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tb_nomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tb_nomeActionPerformed
 
     /**
      * @param args the command line arguments

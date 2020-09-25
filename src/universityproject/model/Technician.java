@@ -15,7 +15,6 @@ public class Technician extends Employee{
     
     public Technician(String code, String name, double wage, String level, String occupation){
         super(code, name, wage, level);
-        type = "Tecnico";
         this.occupation = occupation;
     }
     
