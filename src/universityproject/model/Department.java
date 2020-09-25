@@ -50,7 +50,7 @@ public class Department {
     public double totalDepartmentSpend(){
         double total = 0.0;
         for(int i=0; i < qtdEmployee; i++)
-            total += employee[i].wage;
+            total += employee[i].calculateWage();
         return total;
     }
     

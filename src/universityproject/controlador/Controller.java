@@ -60,6 +60,10 @@ public class Controller {
         return university.dataAllTeacher();
     }
     
+    public Department[] getDepartments(){
+        return university.getDepartments();
+    }
+    
     public String searchDepartment(String code) {
         Department department = university.searchDepartment(code);
         if(department != null){
@@ -68,13 +72,7 @@ public class Controller {
         return "";
     }
     
-    public String searchEmployeeByCode(String code) {
-        Employee employee = (new Department("","",0)).searchEmployeeByCode(code);
-        if(employee != null) {
-            return(employee.getAllData());
-        }
-        return "";
-    }
+    
     
     public String searchEmployeeByName(String code) {
         return (new Department("","",0)).searchEmployeeByName(code);
@@ -91,4 +89,17 @@ public class Controller {
     public String searchEmployeeByInterval(double from, double to) {
         return university.searchEmployeeByInterval(from, to);
     }
+    
+    public Department searchDepartmentByCode(String code){
+        return university.searchDepartment(code);
+    }
+    
+    public String searchEmployeeByCode(String code) {
+        Employee employee = (new Department("","",0)).searchEmployeeByCode(code);
+        if(employee != null) {
+            return(employee.getAllData());
+        }
+        return "";
+    }
 }
+
